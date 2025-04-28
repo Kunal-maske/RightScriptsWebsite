@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RightScripts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_home.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="RightScripts Logo">
+        </div>
+
+        <div class="nav-buttons">
+            <div class="dropdown">
+                <button class="dropdown-btn">भाषा</button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('index', lang='en') }}"><button class="dropdown-btn">English</button></a>
+                    <a href="{{ url_for('index', lang='hi') }}"><button class="dropdown-btn">हिन्दी</button></a>
+                    <a href="{{ url_for('index', lang='mr') }}"><button class="dropdown-btn">Marathi</button></a> 
+                </div>
+            </div>
+            <div class="divider"></div>
+            <button class="logout-btn">लॉगआउट</button>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="content">
+            <h1 id="hello">नमस्ते उपयोगकर्ता!</h1>
+            <h1>RightScripts में आपका स्वागत है</h1>
+            <p>यह उपकरण आपको शिक्षार्थी-केंद्रित वीडियो स्क्रिप्ट बनाने में सहायता करेगा।</p>
+            <div class="buttons">
+                <a href="{{ url_for('i_title_page', lang='hi') }}"><button class="new-script">नई स्क्रिप्ट</button></a>
+                <a href="#previous-scripts"><button class="prev-scripts">पिछली स्क्रिप्ट्स</button></a>
+                <a href="#guide"><button class="guide-script">मार्गदर्शिका</button></a>
+            </div>
+        </div>
+    </div>
+
+    <section class="guide" id="guide">
+        <h2>मार्गदर्शिका</h2>
+        <div class="guide-container">
+            <!-- Left Video -->
+            <div class="guide-item">
+                <div class="video-thumbnail">
+                    <iframe class="video-player" id="video1" width="560" height="315" src="https://www.youtube.com/embed/kX3-7hhQhOs?rel=0&autoplay=0&mute=1&controls=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div class="play-button-overlay" onclick="playVideo('video1')">
+                        <i class="fa fa-play-circle"></i>
+                    </div>
+                </div>
+                <p>शिक्षार्थी-केंद्रित वीडियो लिखने के सुझाव</p>
+            </div>
+
+            <!-- Right Video -->
+            <div class="guide-item">
+                <div class="video-thumbnail">
+                    <iframe class="video-player" id="video2" width="560" height="315" src="https://www.youtube.com/embed/kX3-7hhQhOs?rel=0&autoplay=0&mute=1&controls=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div class="play-button-overlay" onclick="playVideo('video2')">
+                        <i class="fa fa-play-circle"></i>
+                    </div>
+                </div>
+                <p>वीडियो स्क्रिप्ट लेखक का उपयोग कैसे करें</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Previous Scripts Section -->
+    <section class="previous-scripts" id="previous-scripts">
+        <h2>पिछली स्क्रिप्ट्स</h2>
+        <div class="scripts-container" id="scripts-container">
+            <!-- Script Items will be added dynamically -->
+        </div>
+        <button class="show-more-btn" id="show-more-btn">और दिखाएं</button>
+    </section>
+
+    <!-- footer section-->
+    <footer class="footer">
+        राइटस्क्रिप्ट्स - कॉपीराइट © गणेश लोखंडे द्वारा सुरक्षित
+    </footer>
+
+    <script>
+        function openVideoModal(videoId) {
+            const videoUrl = videoId === 'video1' ? "https://www.youtube.com/embed/SmaY7RfBgas" : "https://www.youtube.com/embed/kX3-7hhQhOs";
+            const modal = document.getElementById('video-modal');
+            const iframe = document.getElementById('modal-video');
+
+            iframe.src = videoUrl;
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('video-modal');
+            const iframe = document.getElementById('modal-video');
+            iframe.src = "";
+            modal.style.display = 'none';
+        }
+
+        function addToWatchLater() {
+            alert("बाद में देखने के लिए जोड़ा गया!");
+        }
+
+        function openSettings() {
+            alert("सेटिंग्स खोल रहे हैं...");
+        }
+
+        function maximizeVideo() {
+            const iframe = document.getElementById('modal-video');
+            iframe.style.width = '100%';
+            iframe.style.height = '100vh';
+        }
+    </script>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <p>Generated URL: {{ url_for('i_title', lang='hi') }}</p>
+
+</body>
+</html>

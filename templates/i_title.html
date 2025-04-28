@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_title.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/7.1.0/docx.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+</head>
+<body>
+
+     <!-- .......................NavBar...............-->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="RightScripts Logo">
+            </a>
+        </div>
+        
+
+        <div class="nav-buttons">
+            <div class="dropdown">
+                <button class="dropdown-btn">Language</button>
+                <div class="dropdown-content">
+                    <a href="#">English</a>
+                    <a href="#">Hindi</a>
+                    <a href="#">Marathi</a>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <button class="logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <button style="margin-top: 7%;" class="sidebar-toggle" aria-label="Toggle Sidebar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- .......................Title Section....................-->
+
+
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar_buttons">
+                <button class="sidebar-btn active">Title</button>
+                <button class="sidebar-btn">Introduction</button>
+                <button class="sidebar-btn">Objectives</button>
+                <button class="sidebar-btn">Content</button>
+                <button class="sidebar-btn">Reflection Spot</button>
+                <button class="sidebar-btn">Summary</button>
+                <button class="sidebar-btn">Finalization</button>
+            </div>
+            <p id="count">3/7</p>
+            <div class="time_container">
+                <h2>Set Script Length</h2>
+                
+                <label for="minuteInput">Min:</label>
+                <input type="number" id="minuteInput" min="0" step="1" value="0">
+            </div>
+
+        </div>
+    
+        <div class="content" id="finalization-content">
+            <h2>Enter Video Title here</h2>
+            <textarea placeholder="Enter video details..."></textarea>
+        
+
+            <!-- for video finalization -->
+            <div class="finalization-buttons">
+                <button id="refine-btn">Refine</button>
+                <button id="download-btn">Download</button>
+            </div>
+            <!-- for video finalization -->
+            
+        </div>
+
+    </div>
+
+<div class="travels">
+    <div class="travels_left">
+        <button class="help" onclick="toggleHelp()">Help</button>
+        <button class="Example" onclick="toggleExample()">Example</button>
+    </div>
+
+      <!-- Display word count and script count -->
+    <div id="count-info" class="count-info">
+        <span id="word-count">Words: 0</span> | <span id="duration">Duration: 0</span>
+    </div>
+
+    <div class="travels_right">
+        <button class="Previous"> Previous</button>
+        <button class="Next"> Next</button>
+    </div>
+</div>
+
+<!-- Custom Popup Box -->
+<div id="popup-box" class="popup-box" style="display: none;">
+    <div class="popup-content">
+        <button id="popup-close" class="popup-close">&times;</button>
+        <div id="popup-text" class="popup-text"></div>
+    </div>
+</div>
+
+
+
+<script src="{{ url_for('static', filename='script_title.js') }}"></script>
+<script src="{{ url_for('static', filename='sidebar.js') }}"></script>
+
+</body>
+</html>

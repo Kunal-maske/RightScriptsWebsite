@@ -1,0 +1,660 @@
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&display=swap");
+
+/* General Styles */
+body {
+  margin: 0;
+  font-family: "Google Sans", Arial, sans-serif;
+  text-align: center;
+  background: #c9dae2;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/*-------------------Navbar-------------------------- */
+.navbar {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  background: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 160px;
+  height: auto;
+}
+
+/* Navbar Buttons */
+.nav-buttons {
+  display: flex;
+  align-items: center;
+}
+
+/* Divider Between Language & Logout */
+.divider {
+  height: 24px;
+  width: 1px;
+  background-color: gray;
+  margin: 0 15px;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+/* Hover effect for Language */
+.dropdown-btn:hover {
+  background: lightgray;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  min-width: 120px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 5px;
+  z-index: 2;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+  transition: background 0.3s ease;
+}
+
+/* Hover Effect for Dropdown Items */
+.dropdown-content a:hover {
+  background: #085175;
+  color: white;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Logout Button */
+.logout-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 8px 15px;
+}
+
+/* --------------------------below navbar section-------------------------*/
+
+/* Container */
+.container {
+  display: flex;
+  width: 100%;
+  height: 75vh;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 20vw;
+  background: #eaeaea;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.sidebar_buttons {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sidebar-btn {
+  width: 100%;
+  padding: 14px;
+  margin: 5px 0;
+  border: none;
+  cursor: pointer;
+  font-weight: 100;
+  background: white;
+  transition: 0.3s;
+  border-radius: 5px;
+  font-size: medium;
+}
+
+.sidebar-btn:hover {
+  background: #ccc;
+}
+
+.sidebar-btn.active {
+  background: #085175;
+  color: white;
+}
+
+#count {
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: -5px;
+}
+
+.sidebar h2 {
+  font-size: small;
+  font-weight: 100;
+}
+
+.time_container {
+  text-align: center;
+}
+
+.time-container h2 {
+  font-size: 1rem;
+  color: #000000;
+}
+
+.time-container label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+.time-container input {
+  width: 2%;
+  padding: 5px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  outline: none;
+}
+
+.time-container input::-webkit-inner-spin-button {
+  display: none; /* Hides default number input arrows */
+}
+
+.time-container input:focus {
+  border-color: #007bff; /* Highlight on focus */
+}
+
+.platform textarea {
+  margin-top: 15px;
+  font-family: "Google Sans", Arial, sans-serif;
+  height: 10px;
+  width: 90%;
+  padding: auto;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  overflow-y: hidden;
+  font-weight: 100;
+  font-size: 10px;
+}
+
+/* ---------------------Content Section--------------------------*/
+
+.content {
+  width: 75vw;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+}
+
+.content h2 {
+  margin: 0 0 10px 0;
+  font-weight: 100;
+}
+
+/* Textarea with scroll */
+textarea {
+  font-family: "Google Sans", Arial, sans-serif;
+  width: 95%;
+  height: 52vh;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  font-size: 1rem;
+  font-weight: 200;
+}
+
+.count_and_time {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/*------------------------------------------content specially for finalization---------------------------------------*/
+
+/* Finalization-Specific Styles (Only Active on Finalization Section) */
+.content.finalization-active {
+  background: #ffffff;
+  border: none;
+  overflow-y: hidden;
+}
+
+.content.finalization-active textarea {
+  background: #ffffff;
+  border: 1px solid #ccc;
+  height: 53vh;
+}
+
+.content.finalization-active h2 {
+  color: #000000;
+  font-weight: 100;
+}
+
+/* Finalization Buttons */
+.finalization-buttons {
+  display: none; /* Hidden by default */
+  margin-top: 15px;
+}
+
+.finalization-active .finalization-buttons {
+  display: flex; /* Show when Finalization is active */
+  justify-content: space-around;
+}
+
+.finalization-buttons button {
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0a6b9c;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.finalization-buttons button:hover {
+  background-color: #1c89c9;
+}
+
+/*--------------------------travel buttons---------------------*/
+.travels {
+  width: 100%;
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between; /* Keeps left and right groups apart */
+  align-items: center;
+  padding: 0 5%; /* Prevents buttons from sticking to edges */
+  flex-wrap: wrap;
+  gap: 1rem; /* gap between wrapped items if any */
+  box-sizing: border-box;
+}
+
+.travels_left,
+.travels_right {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  flex-wrap: nowrap; /* Ensure buttons stay in one row inside each group */
+}
+
+.travels button {
+  padding: 8px 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 2px;
+  background-color: #085175;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  white-space: nowrap; /* Prevents buttons from breaking lines */
+}
+
+.help:hover,
+.Example:hover,
+.Next:hover,
+.Previous:hover {
+  background-color: #0a6b9c;
+}
+
+.count-info {
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  margin-top: 5px;
+  color: #000000;
+}
+
+/*--------------------------for help and example---------------------*/
+
+/* Popup Box Styling */
+.popup-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  width: 50%;
+  max-width: 600px;
+  text-align: left; /* Align text to the left */
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #085175;
+}
+
+.popup-close:hover {
+  color: #000;
+}
+
+.popup-text {
+  margin-top: 20px;
+}
+
+/* Replace existing media queries with these */
+
+/* Add before your existing media queries */
+.sidebar-toggle {
+  display: none;
+  position: fixed;
+  left: 15px;
+  top: 70px;
+  z-index: 1001;
+  background: #085175;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.sidebar-toggle.active {
+    left: 270px; /* Width of sidebar + initial left position */
+}
+
+.sidebar-toggle i {
+  font-size: 20px;
+}
+
+.sidebar {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Large screens (laptops/desktops) */
+@media screen and (max-width: 1200px) {
+  .container {
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  .sidebar {
+    width: 25vw;
+  }
+
+  .content {
+    width: 70vw;
+    margin-top: 20%;
+  }
+}
+
+/* Medium screens (tablets) */
+@media screen and (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .sidebar {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 20px;
+    padding: 15px;
+  }
+
+  .content {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  textarea {
+    height: 45vh;
+  }
+
+  .travels {
+    padding: 0 2%;
+  }
+
+  .travels_left,
+  .travels_right {
+    gap: 15px;
+  }
+
+  .popup-content {
+    width: 70%;
+  }
+}
+
+/* Small screens (mobile phones) */
+@media screen and (max-width: 768px) {
+  .navbar {
+    padding-left: 8px;
+    width: 100%;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .nav-buttons {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .divider {
+    margin: 0 10px;
+  }
+
+  .sidebar-btn {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  textarea {
+    height: 40vh;
+    width: 92%;
+  }
+
+  .travels {
+    margin-top: 1rem;
+    /* margin-left: 10%; */
+  }
+
+  .travels_left,
+  .travels_right {
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    margin-left: 10%;
+  }
+
+  .count-info{
+    margin-left: 25%;
+  }
+
+  .travels button {
+    width: 100%;
+    margin: 2px 0;
+  }
+
+  .finalization-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .finalization-buttons button {
+    width: 100%;
+  }
+
+  .popup-content {
+    width: 85%;
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  .count_and_time {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sidebar-toggle {
+    display: block;
+  }
+
+  .container {
+    position: relative;
+  }
+
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 60px;
+    height: calc(100vh - 60px);
+    width: 250px;
+    transform: translateX(-100%);
+    z-index: 1000;
+    background: #eaeaea;
+    overflow-y: auto;
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .content {
+    width: 100%;
+    margin-left: 0;
+    transition: margin-left 0.3s ease-in-out;
+  }
+  .content.sidebar-open {
+    margin-left: 250px;
+  }
+  .container {
+    display: block;
+}
+
+}
+
+
+/* Extra small screens */
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding-left: 8px;
+    width: 100%;
+  }
+
+  .logo img {
+    width: 120px;
+    display: block;
+  }
+
+  .dropdown-btn,
+  .logout-btn {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+
+  .content h2 {
+    font-size: 1.1rem;
+    margin-top: 10%;
+    padding-right: 2%;
+    margin-right: 2%;
+    margin-left: 0%;
+  }
+
+  textarea {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .popup-content {
+    width: 90%;
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .popup-close {
+    font-size: 24px;
+    top: 5px;
+    right: 10px;
+  }
+
+  .time_container input {
+    width: 15%;
+  }
+
+  .count-info {
+    font-size: 14px;
+  }
+}
+
+/* Height-specific adjustments */
+@media screen and (max-height: 600px) {
+  .container {
+    height: auto;
+    min-height: 85vh;
+  }
+
+  textarea {
+    height: 35vh;
+  }
+}

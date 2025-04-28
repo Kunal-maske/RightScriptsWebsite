@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RightScripts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_title.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/7.1.0/docx.min.js"></script>
+</head>
+<body>
+
+     <!-- .......................NavBar...............-->
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="RightScripts लोगो">
+            </a>
+        </div>
+        
+
+        <div class="nav-buttons">
+            <div class="dropdown">
+                <button class="dropdown-btn">भाषा</button>
+                <div class="dropdown-content">
+                    <a href="#">English</a>
+                    <a href="#">Hindi</a>
+                    <a href="#">Marathi</a>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <button class="logout-btn">लॉगआउट</button>
+        </div>
+    </nav>
+
+    <!-- .......................Title Section....................-->
+
+    <div class="container">
+        <div class="sidebar">
+            <div class="sidebar_buttons">
+                <button class="sidebar-btn active">टायटल</button>
+                <button class="sidebar-btn">परिचय</button>
+                <button class="sidebar-btn">उद्दिष्टे</button>
+                <button class="sidebar-btn">सामग्री</button>
+                <button class="sidebar-btn">चिंतन स्थान</button>
+                <button class="sidebar-btn">सारांश</button>
+                <button class="sidebar-btn">अंतिमकरण</button>
+            </div>
+            <p id="count">3/7</p>
+            <div class="time_container">
+                <h2>व्हिडिओची कालावधी सेट करा</h2>
+                
+                <label for="minuteInput">मिनिट:</label>
+                <input type="number" id="minuteInput" min="0" step="1" value="0">
+            </div>
+
+        </div>
+    
+        <div class="content" id="finalization-content">
+            <h2>इथे व्हिडिओ टायटल टाका</h2>
+            <textarea placeholder="व्हिडिओ तपशील टाका..."></textarea>
+           
+
+            <!-- for video finalization -->
+            <div class="finalization-buttons">
+                <button id="refine-btn">सुधारा</button>
+                <button id="download-btn">डाउनलोड करा</button>
+            </div>
+            <!-- for video finalization -->
+            
+        </div>
+
+    </div>
+
+<div class="travels">
+    <div class="travels_left">
+        <button class="help" onclick="toggleHelp()">साहाय्य</button>
+        <button class="Example" onclick="toggleExample()">उदाहरण</button>
+    </div>
+
+      <!-- Display word count and script count -->
+      <div id="count-info" class="count-info">
+        <span id="word-count">शब्द: 0</span> | <span id="duration">कालावधी: 0</span>
+    </div>
+
+    <div class="travels_right">
+        <button class="Previous">माघे</button>
+        <button class="Next"> पुढे</button>
+    </div>
+</div>
+
+<div class="help-example-box">
+    
+</div>
+<script src="{{ url_for('static', filename='script_title.js') }}"></script>
+
+</body>
+</html>

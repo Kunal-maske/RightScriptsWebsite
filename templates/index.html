@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RightScripts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles_home.css') }}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="RightScripts Logo">
+        </div>
+
+        <div class="nav-buttons">
+            <div class="dropdown">
+                <button class="dropdown-btn">Language</button>
+                <div class="dropdown-content">
+                    <a href="{{ url_for('index', lang='en') }}"><button class="dropdown-btn">English</button></a>
+                    <a href="{{ url_for('index', lang='hi') }}"><button class="dropdown-btn">हिन्दी</button></a>                    
+                    <a href="{{ url_for('index', lang='mr') }}"><button class="dropdown-btn">Marathi</button></a>   
+                </div>
+            </div>
+            <div class="divider"></div>
+            <button class="logout-btn">Logout</button>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="content">
+            <h1 id="hello">Hello User!</h1>
+            <h1>Welcome to RightScripts</h1>
+            <p>This tool will help you create learner-centric video scripts.</p>
+            <div class="buttons">
+                <a href="{{ url_for('i_title_page',lang='en') }}"><button class="new-script">New Script</button></a>
+                <a href="#previous-scripts"><button class="prev-scripts">Previous Scripts</button>
+                <a href="#guide"><button class="guide-script">Guide</button></a>
+            </div>
+        </div>
+    </div>
+
+    <section class="guide" id="guide">
+        <h2>Guide</h2>
+        <div class="guide-container">
+            <!-- Left Video -->
+            <div class="guide-item">
+                <div class="video-thumbnail">
+                    <!-- Embed the video with a placeholder for the thumbnail -->
+                    <iframe class="video-player" id="video1" width="560" height="315" src="https://www.youtube.com/embed/kX3-7hhQhOs?rel=0&autoplay=0&mute=1&controls=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div class="play-button-overlay" onclick="playVideo('video1')">
+                        <i class="fa fa-play-circle"></i>
+                    </div>
+                </div>
+                <p>Tips for writing learner-centric video</p>
+            </div>
+    
+            <!-- Right Video -->
+            <div class="guide-item">
+                <div class="video-thumbnail">
+                    <!-- Embed the video with a placeholder for the thumbnail -->
+                    <iframe class="video-player" id="video2" width="560" height="315" src="https://www.youtube.com/embed/kX3-7hhQhOs?rel=0&autoplay=0&mute=1&controls=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <div class="play-button-overlay" onclick="playVideo('video2')">
+                        <i class="fa fa-play-circle"></i>
+                    </div>
+                </div>
+                <p>How to use the video script writer</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Previous Scripts Section -->
+<section class="previous-scripts" id="previous-scripts">
+    <h2>Previous Scripts</h2>
+    <div class="scripts-container" id="scripts-container">
+        <!-- Script Items will be added dynamically -->
+    </div>
+    <button class="show-more-btn" id="show-more-btn">Show More</button>
+</section>
+
+    <!-- footer section-->
+    <footer class="footer">
+        rigthscripts copyright reserved by Ganesh Lokhande
+    </footer>
+
+    <script>
+        function openVideoModal(videoId) {
+            const videoUrl = videoId === 'video1' ? "https://www.youtube.com/embed/SmaY7RfBgas" : "https://www.youtube.com/embed/kX3-7hhQhOs";
+            const modal = document.getElementById('video-modal');
+            const iframe = document.getElementById('modal-video');
+
+            iframe.src = videoUrl; // Set video URL based on clicked thumbnail
+            modal.style.display = 'block'; // Show modal
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('video-modal');
+            const iframe = document.getElementById('modal-video');
+            iframe.src = ""; // Stop the video when modal is closed
+            modal.style.display = 'none'; // Hide modal
+        }
+
+        function addToWatchLater() {
+            alert("Added to Watch Later!"); // This can be expanded to store the video in local storage or a backend system
+        }
+
+        function openSettings() {
+            alert("Opening settings..."); // You can expand this to show video settings options
+        }
+
+        function maximizeVideo() {
+            const iframe = document.getElementById('modal-video');
+            iframe.style.width = '100%';
+            iframe.style.height = '100vh'; // Expand to full screen or use another method for fullscreen
+        }
+    </script>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

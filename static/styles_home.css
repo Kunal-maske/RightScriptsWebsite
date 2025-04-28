@@ -1,0 +1,598 @@
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&display=swap");
+
+/* General Styles */
+body {
+  margin: 0;
+  font-family: "Google Sans", Arial, sans-serif;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---------------------------------Navbar-------------------------- */
+.navbar {
+  height: 68px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  background: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap; /* So it wraps on small screens */
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 160px;
+  height: auto;
+}
+
+/* Navbar Buttons */
+.nav-buttons {
+  display: flex;
+  align-items: center;
+}
+
+/* Divider Between Language & Logout */
+.divider {
+  height: 24px;
+  width: 1px;
+  background-color: gray;
+  margin: 0 15px;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+/* Hover effect for Language */
+.dropdown-btn:hover {
+  background: lightgray;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  min-width: 120px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  border-radius: 5px;
+  z-index: 2;
+}
+
+.dropdown-content a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+  transition: background 0.3s ease;
+}
+
+/* Hover Effect for Dropdown Items */
+.dropdown-content a:hover {
+  background: #085175;
+  color: white;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Logout Button */
+.logout-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 8px 15px;
+}
+
+/* Hero Section */
+.hero {
+  background: url("assets/clouds_02.png") no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.content {
+  text-align: center;
+}
+
+.content h1 {
+  font-size: 60px;
+  font-weight: 400;
+  margin: 0;
+}
+
+#hello {
+  text-align: left;
+}
+
+p {
+  font-size: 20px;
+  font-weight: normal;
+  margin-top: 0px;
+}
+
+/* Buttons */
+.buttons {
+  margin-top: 20px;
+}
+
+.new-script,
+.prev-scripts,
+.guide-script {
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 5px;
+  background: #085175;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+/* Hover Effect: Darker Blue */
+.new-script:hover,
+.prev-scripts:hover,
+.guide-script:hover {
+  background: rgba(8, 81, 117, 0.6);
+}
+
+/* --------------------------------------------------*/
+/* Guide Section Styles */
+.guide {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f8f9fa;
+}
+
+.guide h2 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Video Container */
+.guide-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap; /* Responsive layout */
+}
+
+/* Individual Video Box */
+.guide-item {
+  text-align: center;
+  width: 500px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.guide-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effect */
+.guide-item:hover {
+  transform: scale(1.05);
+}
+
+/* Video Title */
+.guide-item p {
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .guide-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* .....................for the previous scripts.....................*/
+
+/* Previous Scripts Section */
+.previous-scripts {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #ffffff;
+}
+
+.previous-scripts h2 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.scripts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-height: 600px; /* Limit height to show only initial 8 scripts */
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.script-item {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.script-item:hover {
+  transform: scale(1.05);
+}
+
+/* ...........Show More Button............. */
+.show-more-btn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background: #085175;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+.show-more-btn:hover {
+  background: #1e5dd9;
+}
+
+/*.....................footer:rights reserved.................*/
+
+.footer {
+  margin-top: 40px;
+  text-align: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  font-size: 16px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* --------------for making the actual thubnail------------- */
+
+/* Style for the video thumbnail and overlay */
+.video-thumbnail {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* This gives a 16:9 aspect ratio (height = width * 9 / 16) */
+  background-color: #000; /* Optional: This gives the background a black color */
+  margin-bottom: 20px;
+}
+
+.video-thumbnail iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.play-button-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.play-button-overlay i {
+  font-size: 50px;
+  color: white;
+}
+
+.guide-item {
+  margin-bottom: 30px;
+}
+
+.video-player {
+  display: block;
+}
+
+/* Hide the overlay and show the play button */
+.video-thumbnail .play-button-overlay:hover {
+  opacity: 0.6;
+}
+
+/* Add these media queries at the end of the file */
+
+/* Replace existing media queries with these new ones */
+
+/* Large screens (laptops/desktops) */
+@media screen and (max-width: 1200px) {
+  .hero {
+    padding-top: 100px;
+  }
+
+  .content h1 {
+    font-size: 48px;
+  }
+
+  .guide-container {
+    gap: 30px;
+  }
+
+  .guide-item {
+    width: 45%;
+    min-width: 300px;
+  }
+
+  .scripts-container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    padding: 0 20px;
+  }
+}
+
+/* Medium screens (tablets) */
+@media screen and (max-width: 1024px) {
+  .navbar {
+    padding: 10px 20px;
+  }
+
+  .hero {
+    padding-top: 120px;
+    min-height: 500px;
+  }
+
+  .content {
+    width: 90%;
+  }
+
+  .content h1 {
+    font-size: 42px;
+  }
+
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .guide h2,
+  .previous-scripts h2 {
+    font-size: 3rem;
+  }
+
+  .guide-container {
+    gap: 20px;
+  }
+
+  .guide-item {
+    width: 80%;
+    max-width: 500px;
+  }
+}
+
+/* Small screens (mobile phones) */
+@media screen and (max-width: 768px) {
+  .navbar {
+    height: auto;
+    padding: 10px;
+  }
+
+  .nav-buttons {
+    width: 100%;
+    justify-content: center;
+    margin-top: 15px;
+  }
+
+  .logo img {
+    width: 130px;
+  }
+
+  .hero {
+    padding-top: 140px;
+    min-height: 450px;
+  }
+
+  .content {
+    text-align: center;
+    margin-top: -200px;
+    
+  }
+
+  .content h1 {
+    font-size: 32px;
+  }
+
+  #hello {
+    text-align: center;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+   .buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .new-script,
+    .prev-scripts,
+    .guide-script {
+        width: 200px; /* Keep width consistent */
+        height: 48px; /* Keep height consistent */
+        margin: 5px 0;
+        font-size: 18px; /* Keep font size consistent */
+        padding: 12px 25px;
+    }
+
+  .guide h2,
+  .previous-scripts h2 {
+    font-size: 2.5rem;
+  }
+
+  .guide-item {
+    width: 90%;
+  }
+
+  .scripts-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .show-more-btn {
+    width: 80%;
+    max-width: 300px;
+  }
+}
+
+/* Extra small screens */
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding: 8px;
+  }
+
+  .logo img {
+    width: 110px;
+  }
+
+  .dropdown-btn,
+  .logout-btn {
+    font-size: 15px;
+    padding: 6px 12px;
+  }
+
+  .hero {
+    padding-top: 130px;
+    min-height: 400px;
+  }
+
+  .content h1 {
+    font-size: 28px;
+  }
+
+  .new-script,
+    .prev-scripts,
+    .guide-script {
+        width: 200px; /* Keep width consistent */
+        height: 48px; /* Keep height consistent */
+        font-size: 18px; /* Keep font size consistent */
+        padding: 12px 25px;
+    }
+
+  .guide h2,
+  .previous-scripts h2 {
+    font-size: 2rem;
+  }
+
+  .guide-item p {
+    font-size: 0.9rem;
+  }
+
+  .play-button-overlay i {
+    font-size: 40px;
+  }
+
+  .footer {
+    font-size: 14px;
+    padding: 8px;
+  }
+  .content {
+    text-align: center;
+    margin-top: -160px;
+  }
+}
+
+/* Height-specific adjustments */
+@media screen and (max-height: 600px) {
+  .hero {
+    min-height: 450px;
+    padding-top: 100px;
+  }
+
+  .content h1 {
+    font-size: 32px;
+  }
+
+  .buttons {
+    margin-top: 15px;
+  }
+}
+
+/* Landscape mode adjustments */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  .hero {
+    min-height: 500px;
+    padding-top: 80px;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .new-script,
+    .prev-scripts,
+    .guide-script {
+        width: 200px; /* Keep width consistent */
+        height: 48px; /* Keep height consistent */
+        font-size: 18px; /* Keep font size consistent */
+        padding: 12px 25px;
+    }
+}
